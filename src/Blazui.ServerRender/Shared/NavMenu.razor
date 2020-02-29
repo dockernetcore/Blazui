@@ -25,7 +25,6 @@
     <BMenuItem Route="upload">Upload 文件上传</BMenuItem>
     <BMenuItem Route="dropdown">DropDown 下拉菜单</BMenuItem>
     <BMenuItem Route="markdowneditor">MarkDown Editor</BMenuItem>
-    <BMenuItem Route="transfer">Transfer 穿梭</BMenuItem>
 </BMenu>
 
 @code {
@@ -36,14 +35,7 @@
     {
         if (new Uri(NavigationManager.Uri).LocalPath == "/")
         {
-            try
-            {
-                NavigationManager.NavigateTo("button");
-            }
-            catch (Exception)
-            {
-
-            }
+            NavigationManager.NavigateTo("button");
         }
     }
 }

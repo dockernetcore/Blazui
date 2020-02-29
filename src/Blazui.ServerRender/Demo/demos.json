@@ -29,27 +29,6 @@
     ]
   },
   {
-    "name": "transfer",
-    "demos": [
-      {
-        "title": "基础用法",
-        "name": "Transfer",
-        "files": [
-          "BasicTransfer.razor"
-        ]
-      },
-      {
-        "title": "表单提交",
-        "name": "Transfer",
-        "files": [
-          "FormTransfer.razor",
-          "FormTransferBase.cs",
-          "TransferModel.cs"
-        ]
-      }
-    ]
-  },
-  {
     "name": "tabs",
     "demos": [
       {
@@ -135,8 +114,7 @@
         "files": [
           "PassParameter.razor",
           "BasicDialogBase.cs",
-          "TestContent.razor",
-          "TestContentBase.cs"
+          "TestContent.razor"
         ]
       }
     ]

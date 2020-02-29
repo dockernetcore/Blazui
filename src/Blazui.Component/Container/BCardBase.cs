@@ -12,6 +12,12 @@ namespace Blazui.Component.Container
         internal HtmlPropertyBuilder bodyClassBuilder;
 
         /// <summary>
+        /// 最外层的 Class 类
+        /// </summary>
+        [Parameter]
+        public string Cls { get; set; }
+
+        /// <summary>
         /// Body 上的 Class 类
         /// </summary>
         [Parameter]

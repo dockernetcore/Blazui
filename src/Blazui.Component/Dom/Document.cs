@@ -50,10 +50,6 @@ namespace Blazui.Component.Dom
         {
             return await jSRuntime.InvokeAsync<int>("getClientWidth");
         }
-        public async Task<int> GetClientHeightAsync()
-        {
-            return await jSRuntime.InvokeAsync<int>("getClientHeight");
-        }
 
         internal ValueTask RegisterPasteUploadAsync(BUploadBase upload, string url)
         {

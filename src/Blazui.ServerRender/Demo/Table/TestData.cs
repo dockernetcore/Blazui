@@ -1,4 +1,4 @@
-﻿using Blazui.Component;
+﻿using Blazui.Component.Table;
 using System;
 using System.Collections.Generic;
 using System.Linq;

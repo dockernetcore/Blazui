@@ -7,7 +7,7 @@ using Blazui.Component.CheckBox;
 using Blazui.Component.EventArgs;
 using Blazui.Component.Dom;
 using Microsoft.JSInterop;
-using Blazui.Component;
+using Blazui.Component.Form;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace Blazui.Component.Input
@@ -21,10 +21,6 @@ namespace Blazui.Component.Input
         [Parameter]
         public InputType Type { get; set; } = InputType.Text;
 
-        /// <summary>
-        /// 当输入值错误时是否抛出异常
-        /// </summary>
-        protected virtual bool ThrowOnInvalidValue { get; } = true;
         /// <summary>
         /// 是否启用清空按钮
         /// </summary>
@@ -98,6 +94,9 @@ namespace Blazui.Component.Input
         [Parameter]
         public virtual string AdditionalClearIcon { get; set; }
 
+        [Parameter]
+        public virtual string Cls { get; set; }
+
         internal ElementReference Content { get; set; }
         internal ElementReference InputElement { get; set; }
 
@@ -130,13 +129,7 @@ namespace Blazui.Component.Input
 
         protected virtual void OnChangeEventArgs(ChangeEventArgs input)
         {
-            try
-            {
-                Value = (TValue)TypeHelper.ChangeType(input.Value, typeof(TValue));
-            }
-            catch (FormatException) when (ThrowOnInvalidValue)
-            {
-            }
+            Value = (TValue)TypeHelper.ChangeType(input.Value, typeof(TValue));
             if (ValueChanged.HasDelegate)
             {
                 _ = ValueChanged.InvokeAsync(Value);

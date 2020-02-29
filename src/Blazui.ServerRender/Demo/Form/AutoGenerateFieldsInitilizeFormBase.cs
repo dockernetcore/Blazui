@@ -1,4 +1,4 @@
-﻿using Blazui.Component;
+﻿using Blazui.Component.Form;
 using Blazui.Component.Select;
 using Microsoft.AspNetCore.Components;
 using System;

@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Blazui.ServerRender.Demo.Dialog
 {
-    public class NestDialogBase : BDialogBase
+    public class NestDialogBase : ComponentBase
     {
+        [Inject]
+        DialogService DialogService { get; set; }
         public async Task ShowDialog(MouseEventArgs eventArgs)
         {
             var result = await DialogService.ShowDialogAsync<ExampleDialog>("测试窗口");

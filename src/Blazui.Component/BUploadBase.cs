@@ -1,5 +1,5 @@
 ﻿using Blazui.Component.Dom;
-using Blazui.Component;
+using Blazui.Component.Form;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;

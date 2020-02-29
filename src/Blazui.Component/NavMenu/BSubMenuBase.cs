@@ -78,10 +78,7 @@ namespace Blazui.Component.NavMenu
         {
             backgroundColor = Options.BackgroundColor;
             textColor = Options.TextColor;
-            if (!TopMenu.CanCollapse)
-            {
-                IsOpened = true;
-            }
+
             base.OnInitialized();
         }
 
@@ -226,7 +223,7 @@ namespace Blazui.Component.NavMenu
 
         protected void OnClick()
         {
-            if (IsVertical && TopMenu.CanCollapse)
+            if (IsVertical)
             {
                 IsOpened = !IsOpened;
             }

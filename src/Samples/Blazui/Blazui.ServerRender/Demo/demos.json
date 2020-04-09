@@ -688,5 +688,17 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Carousel",
+    "demos": [
+      {
+        "title": "基础用法",
+        "name": "Carousel",
+        "files": [
+          "BasicCarousel.razor"
+        ]
+      }
+    ]
   }
 ]

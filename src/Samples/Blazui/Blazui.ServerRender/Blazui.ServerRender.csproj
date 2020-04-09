@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Content Remove="Demo\BasicButton\BasicButton.razor" />
+    <Content Remove="Demo\Carousel\BasicCarousel.razor" />
     <Content Remove="Demo\MarkdownEditor\BasicEditor.razor" />
     <Content Remove="Demo\MarkdownEditor\FormMarkdown.razor" />
     <Content Remove="Demo\MarkdownEditor\Markdown.razor" />
@@ -27,6 +28,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Demo\BasicButton\BasicButton.razor">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Demo\Carousel\BasicCarousel.razor">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -458,7 +462,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Markdown\Blazui.Markdown.csproj" />
+    <ProjectReference Include="..\..\..\Components\Blazui.Component.csproj" />
   </ItemGroup>
 
 </Project>

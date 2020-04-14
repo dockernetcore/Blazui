@@ -9,92 +9,47 @@ namespace Blazui.Component
 {
     public class BCarouselBase : BComponentBase
     {
-        internal HtmlPropertyBuilder cssClassBuilder;
-        protected async Task OnButtonClickedAsync(MouseEventArgs e)
+        public List<string> Item { get; set; } = new List<string>();
+
+        public ElCarousel Active { get; set; } = new ElCarousel()
         {
-            if (IsDisabled)
-            {
-                return;
-            }
-            if (OnClick.HasDelegate)
-            {
-                await OnClick.InvokeAsync(e);
-            }
-        }
+            Class = "el-carousel__item is-active is-animating",
+            Style = "transform: translateX(0px) scale(1);",
+            UlClass = "el-carousel__indicator el-carousel__indicator--horizontal is-active"
+        };
 
-        /// <summary>
-        /// 是否将自定义的 CSS 类加入到已有 CSS 类，如果为 false，则替换掉默认 CSS 类，默认为 true
-        /// </summary>
-        [Parameter]
-        public bool AppendCustomCls { get; set; } = true;
-        [Parameter]
-        public EventCallback<MouseEventArgs> OnClick { get; set; }
+        public ElCarousel Animating { get; set; } = new ElCarousel()
+        { 
+            Class = "el-carousel__item is-animating",
+            Style = "transform: translateX(-278px) scale(1);",
+            UlClass = "el-carousel__indicator el-carousel__indicator--horizontal"
+        };
 
-        [Parameter]
-        public ButtonType Type { get; set; } = ButtonType.Default;
+        public ElCarousel Carousel { get; set; } = new ElCarousel()
+        { 
+            Class = "el-carousel__item",
+            Style = "transform: translateX(834px) scale(1);",
+            UlClass = "el-carousel__indicator el-carousel__indicator--horizontal"
+        };
 
-        [Parameter]
-        public bool IsPlain { get; set; }
-
-        [Parameter]
-        public bool IsRound { get; set; }
-
-        [Parameter]
-        public bool IsDisabled { get; set; }
-
-        [Parameter]
-        public bool IsCircle { get; set; }
-
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
-
-        [Parameter]
-        public ButtonSize Size { get; set; }
-
-        [Parameter]
-        public string Icon { get; set; }
-
-        [Parameter]
-        public bool IsLoading { get; set; }
-
-        [Parameter]
-        public List<(string, string)> item { get; set; }
-
-        protected override bool ShouldRender()
-        {
-            return true;
-        }
+        internal List<HtmlPropertyBuilder> cssClassBuilderList;
 
         protected override void OnParametersSet()
         {
             base.OnParametersSet();
-            if (IsLoading)
-            {
-                IsDisabled = true;
-            }
-            cssClassBuilder = HtmlPropertyBuilder.CreateCssClassBuilder();
-            if (string.IsNullOrWhiteSpace(Cls) || AppendCustomCls)
-            {
-                cssClassBuilder.Add($"el-button", $"el-button--{Type.ToString().ToLower()}", Cls)
-                .AddIf(Size != ButtonSize.Default, $"el-button--{Size.ToString().ToLower()}")
-                .AddIf(IsPlain, "is-plain")
-                .AddIf(IsRound, "is-round")
-                .AddIf(IsDisabled, "is-disabled")
-                .AddIf(IsLoading, "is-loading")
-                .AddIf(IsCircle, "is-circle");
-                return;
-            }
-            cssClassBuilder.AddIf(!string.IsNullOrWhiteSpace(Cls), Cls);
-            if (string.IsNullOrWhiteSpace(Cls))
-            {
-                cssClassBuilder.Add($"el-button", $"el-button--{Type.ToString().ToLower()}")
-                    .AddIf(Size != ButtonSize.Default, $"el-button--{Size.ToString().ToLower()}")
-                    .AddIf(IsPlain, "is-plain")
-                    .AddIf(IsRound, "is-round")
-                    .AddIf(IsDisabled, "is-disabled")
-                    .AddIf(IsLoading, "is-loading")
-                    .AddIf(IsCircle, "is-circle");
-            }
+            Item.Add("1");
+            Item.Add("2");
+            Item.Add("3");
+            Item.Add("4");
         }
+    }
+
+    public class ElCarousel
+    {
+        public string Class { get; set; }
+
+        public string Style { get; set; }
+
+        public string UlClass { get; set; }
     }
 }

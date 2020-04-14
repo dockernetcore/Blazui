@@ -1,9 +1,85 @@
-﻿@*@inherits BCarouselBase*@
+﻿@using System.Threading;
+@inherits BCarouselBase
+<div class="block" style="padding: 30px;
+        border:1px solid #ff0000;
+        text-align: center;
+        border-right: 1px solid #eff2f6;
+        display: inline-block;
+        width: 261.66px;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color:transparent;">
+    <span class="demonstration">默认 Hover 指示器触发</span>
+    <div class="el-carousel el-carousel--horizontal">
+        <div class="el-carousel__container">
+            <button type="button" class="el-carousel__arrow el-carousel__arrow--left" style="display: none;">
+                <i class="el-icon-arrow-left"></i>
+            </button>
+            <button type="button" class="el-carousel__arrow el-carousel__arrow--right" style="display: none;">
+                <i class="el-icon-arrow-right"></i>
+            </button>
+            @{
+                int j = 0;
+                System.Threading.Timer timer = new System.Threading.Timer(
+                new System.Threading.TimerCallback(s=> function()), null, 0, 1000);//1S定时器  
+                void function()
+                {
+                    for (int i = j; i < Item.Count; i++)
+                    {
+                        if (i == 0)
+                        {
+                            <div class="@Active.Class" style="@Active.Style">
+                                <h3 class="small">@(i+1)</h3>
+                            </div>
+                        }
+                        else if (i == Item.Count - 1)
+                        {
+                            <div class="@Animating.Class" style="@Animating.Style">
+                                <h3 class="small">@(i+1)</h3>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="@Carousel.Class" style="@Carousel.Style">
+                                <h3 class="small">@(i+1)</h3>
+                            </div>
+                        }
+                    }
+                    j++;
+                }
 
-@for (int i = 0; i < 4; i++)
-{
-    @*<div style="@Style" class="@cssClassBuilder">*@
-        <div>
-            11
+                @*<div class="el-carousel__item" style="transform: translateX(834px) scale(1);">
+                        <h3 class="small">1</h3>
+                    </div>
+                    <div class="el-carousel__item is-animating" style="transform: translateX(-278px) scale(1);">
+                        <h3 class="small">2</h3>
+                    </div>
+                    <div class="el-carousel__item is-active is-animating" style="transform: translateX(0px) scale(1);">
+                        <h3 class="small">3</h3>
+                    </div>
+                    <div class="el-carousel__item" style="transform: translateX(278px) scale(1);">
+                        <h3 class="small">4</h3>
+                    </div>*@
+            }
         </div>
-}
+        <ul class="el-carousel__indicators el-carousel__indicators--horizontal">
+            <li class="el-carousel__indicator el-carousel__indicator--horizontal">
+                <button class="el-carousel__button"></button>
+            </li>
+            <li class="el-carousel__indicator el-carousel__indicator--horizontal">
+                <button class="el-carousel__button"></button>
+            </li>
+            <li class="el-carousel__indicator el-carousel__indicator--horizontal is-active">
+                <button class="el-carousel__button"></button>
+            </li>
+            <li class="el-carousel__indicator el-carousel__indicator--horizontal">
+                <button class="el-carousel__button"></button>
+            </li>
+        </ul>
+    </div>
+</div>

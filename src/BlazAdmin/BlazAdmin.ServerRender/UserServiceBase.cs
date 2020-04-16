@@ -1,5 +1,5 @@
 ﻿using BlazAdmin.Abstract;
-using Blazui.Component.Form;
+using Blazui.Component;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -1,4 +1,4 @@
-﻿using Blazui.Component;
+﻿using Blazui.Component.Form;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

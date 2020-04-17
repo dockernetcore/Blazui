@@ -19,8 +19,4 @@
     <Folder Include="Properties\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BlazAdmin\BlazAdmin.csproj" />
-  </ItemGroup>
-
 </Project>

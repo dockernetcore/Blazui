@@ -13,5 +13,7 @@ namespace Blazui.Admin
         public string Name { get; set; }
 
         public List<string> Resources { get; set; } = new List<string>();
+
+        public DateTime CreateTime { set; get; }
     }
 }
